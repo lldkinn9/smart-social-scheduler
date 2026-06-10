@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Smart Social Scheduler</title>
+    <!-- Modern Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --container-bg: rgba(17, 24, 39, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent-primary: #4f46e5;
+            --accent-secondary: #06b6d4;
+            --glow-color: rgba(79, 70, 229, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 80px 24px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 60px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 80px var(--glow-color);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 38px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .lang-switch {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 24px;
+            margin-bottom: 40px;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color) 20%, var(--border-color) 80%, transparent);
+            margin: 40px 0;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-top: 36px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary));
+            border-radius: 2px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 24px;
+            padding-left: 12px;
+        }
+
+        li {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--accent-secondary);
+            font-size: 12px;
+        }
+
+        .section-lang {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.3);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 40px 16px;
+            }
+            .container {
+                padding: 30px 20px;
+                border-radius: 16px;
+            }
+            .header h1 {
+                font-size: 28px;
+            }
+            .logo {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo">Smart Social Scheduler</div>
+            <h1>Terms of Service</h1>
+            <div class="lang-switch">
+                <a href="#english" class="lang-btn active">English</a>
+                <a href="#japanese" class="lang-btn">日本語</a>
+            </div>
+        </div>
+
+        <!-- ================= ENGLISH SECTION ================= -->
+        <div id="english" class="section-lang">
+            <p><strong>Last Updated:</strong> May 29, 2026</p>
+            <p>Welcome to <strong>Smart Social Scheduler</strong>. These Terms of Service ("Terms") govern your access to and use of our website, services, and applications (collectively, the "Service"). By accessing or using our Service, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use the Service.</p>
+
+            <h2>1. License to Use the Service</h2>
+            <p>We grant you a limited, non-exclusive, non-transferable, and revocable license to access and use our Service strictly in accordance with these Terms. You agree to use the Service only for lawful purposes, such as scheduling and managing content for your authorized social media accounts.</p>
+
+            <h2>2. User Accounts and Account Linking</h2>
+            <p>To use certain features of the Service, you must link your social media accounts (such as TikTok) via official API integration (OAuth):</p>
+            <ul>
+                <li>You represent and warrant that you own or have the proper authorizations to manage and publish content on the linked social media accounts.</li>
+                <li>You are solely responsible for maintaining the confidentiality and security of your API authentication tokens and account configurations.</li>
+                <li>We are not responsible for any unauthorized access to your account or any issues arising from third-party login credentials.</li>
+            </ul>
+
+            <h2>3. Prohibited Conduct</h2>
+            <p>You agree not to engage in any of the following prohibited activities while using our Service:</p>
+            <ul>
+                <li>Uploading or scheduling content that violates local laws, third-party intellectual property rights, or the official Community Guidelines of TikTok or other linked platforms.</li>
+                <li>Using the Service to distribute spam, coordinate massive automated bot actions, or engage in malicious API exploitation.</li>
+                <li>Attempting to bypass, reverse engineer, or disrupt the security features, architecture, and rate limits of our Service.</li>
+            </ul>
+
+            <h2>4. Intellectual Property</h2>
+            <p>All right, title, and interest in and to the Service (excluding content provided by users) are and will remain the exclusive property of Smart Social Scheduler and its licensors. The Service is protected by copyright, trademark, and other laws.</p>
+
+            <h2>5. Disclaimer of Warranties & Limitation of Liability</h2>
+            <p>The Service is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, whether express or implied. To the maximum extent permitted by law, Smart Social Scheduler shall not be liable for:</p>
+            <ul>
+                <li>Any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, use, goodwill, or other intangible losses.</li>
+                <li>Any account suspensions, shadowbans, content deletions, or policy enforcement actions taken against your connected accounts by third-party social networks (such as TikTok) as a result of using this automation tool.</li>
+            </ul>
+
+            <h2>6. Termination</h2>
+            <p>We may terminate or suspend your access to the Service immediately, without prior notice or liability, for any reason, including without limitation if you breach the Terms. Upon termination, your right to use the Service will immediately cease.</p>
+
+            <h2>7. Governing Law and Changes to Terms</h2>
+            <p>These Terms shall be governed and construed in accordance with local laws. We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will provide notice on this page prior to any new terms taking effect.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- ================= JAPANESE SECTION ================= -->
+        <div id="japanese" class="section-lang">
+            <h1 style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 800; margin-bottom: 24px; color: #ffffff; letter-spacing: -0.5px;">利用規約 (Japanese)</h1>
+            <p><strong>最終更新日:</strong> 2026年5月29日</p>
+            <p><strong>Smart Social Scheduler</strong>へようこそ。本利用規約（以下、「本規約」）は、ユーザーによる当サービスのウェブサイト, サービス、およびアプリケーション（以下、総称して「当サービス」）へのアクセスと利用に関する条件を定めるものです。当サービスを利用することにより、ユーザーは本規約に同意したものとみなされます。同意しない場合は、サービスの利用をお控えください。</p>
+
+            <h2>1. サービスの利用許諾</h2>
+            <p>当サービスは、ユーザーに対し、本規約に従ってサービスにアクセスし利用するための、限定的、非独占的、譲渡不能、かつ取り消し可能なライセンスを付与します。ユーザーは、正当な権限を持つソーシャルメディアアカウント（TikTok等）への予約投稿・管理などの適法な目的にのみサービスを利用することに同意するものとします。</p>
+
+            <h2>2. ユーザーアカウントおよびアカウント連携</h2>
+            <p>当サービスの一部の機能を利用するには、公式API連携（OAuth）を通じてソーシャルメディアアカウントを連携する必要があります：</p>
+            <ul>
+                <li>ユーザーは、連携するソーシャルメディアアカウントの所有権、またはコンテンツの投稿・管理に関する正当な権限を有していることを表明し、保証するものとします。</li>
+                <li>ユーザーは、API認可トークンおよびアカウント設定情報の機密性と安全性を維持する全責任を負うものとします。</li>
+                <li>当サービスは、サードパーティ連携等による不正アクセスや、連携データの取り扱いに起因するユーザーの不利益について責任を負いません。</li>
+            </ul>
+
+            <h2>3. 禁止事項</h2>
+            <p>当サービスの利用において、ユーザーは以下の行為を行ってはなりません：</p>
+            <ul>
+                <li>地域の法律、第三者の知的財産権、またはTikTok等の連携プラットフォームの公式コミュニティガイドラインに違反するコンテンツのアップロードおよび投稿スケジュール設定。</li>
+                <li>スパムの配布、ボットネットワークによる不正な自動化行為、またはAPIの乱用・悪用。</li>
+                <li>当サービスのセキュリティ機能、システム構成、およびAPIレート制限をバイパス、逆コンパイル、または妨害しようとする試み。</li>
+            </ul>
+
+            <h2>4. 知的財産権</h2>
+            <p>当サービスに関するすべての権利、所有権、および知的財産権（ユーザー自身が提供したコンテンツを除く）は、Smart Social Schedulerおよびそのライセンサーに帰属します。当サービスは、著作権法、商標法、およびその他の法律によって保護されています。</p>
+
+            <h2>5. 保証の否認および免責事項</h2>
+            <p>当サービスは「現状有姿」かつ「利用可能な範囲」で提供され、明示または黙示を問わず、いかなる保証も行いません。法的に許容される最大限の範囲において、当サービスは以下について責任を負いません：</p>
+            <ul>
+                <li>利益、データ、利用権、営業権の損失、またはその他の無体の損失を含む、いかなる間接的、偶発的、特別、結果的、または懲罰的な損害。</li>
+                <li>本サービスの利用に関連して、サードパーティのSNSプラットフォーム（TikTok等）によってユーザーの連携アカウントに適用されたアカウント制限、シャドウバン、コンテンツ削除、またはその他のポリシー執行措置。</li>
+            </ul>
+
+            <h2>6. 契約の終了</h2>
+            <p>当社は、ユーザーが本規約に違反した場合を含め、事前の通知なしにいつでも当サービスへのアクセスを終了または一時停止する権利を留保します。サービスの利用契約が終了した場合、ユーザーの利用権限は即座に無効となります。</p>
+
+            <h2>7. 準拠法および規約の変更</h2>
+            <p>本規約は、現地の法律に準拠して解釈されます。当社は、自らの裁量により、いつでも本規約を変更または改定する権利を留保します。変更がある場合は、本ページに掲載することでお知らせします。</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Smart Social Scheduler. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const btns = document.querySelectorAll('.lang-btn');
+        btns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                btns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

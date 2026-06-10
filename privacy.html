@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Smart Social Scheduler</title>
+    <!-- Modern Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --container-bg: rgba(17, 24, 39, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent-primary: #4f46e5;
+            --accent-secondary: #06b6d4;
+            --glow-color: rgba(79, 70, 229, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 80px 24px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 60px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 80px var(--glow-color);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 38px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .lang-switch {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 24px;
+            margin-bottom: 40px;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color) 20%, var(--border-color) 80%, transparent);
+            margin: 40px 0;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-top: 36px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary));
+            border-radius: 2px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 24px;
+            padding-left: 12px;
+        }
+
+        li {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--accent-secondary);
+            font-size: 12px;
+        }
+
+        .section-lang {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.3);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 40px 16px;
+            }
+            .container {
+                padding: 30px 20px;
+                border-radius: 16px;
+            }
+            .header h1 {
+                font-size: 28px;
+            }
+            .logo {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo">Smart Social Scheduler</div>
+            <h1>Privacy Policy</h1>
+            <div class="lang-switch">
+                <a href="#english" class="lang-btn active">English</a>
+                <a href="#japanese" class="lang-btn">日本語</a>
+            </div>
+        </div>
+
+        <!-- ================= ENGLISH SECTION ================= -->
+        <div id="english" class="section-lang">
+            <p><strong>Effective Date:</strong> May 29, 2026</p>
+            <p>At <strong>Smart Social Scheduler</strong> (referred to as "we", "us", or "our"), accessible from our application platform, one of our main priorities is the privacy of our visitors and users. This Privacy Policy document contains types of information that is collected and recorded by Smart Social Scheduler and how we use it.</p>
+            <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</p>
+
+            <h2>1. Information We Collect</h2>
+            <p>We only collect and process information that is absolutely necessary to provide the automated scheduling and posting features for your TikTok accounts. The information we collect includes:</p>
+            <ul>
+                <li><strong>OAuth Authentication Data:</strong> Access tokens and refresh tokens authorized by you via the official TikTok Login Kit to publish video content.</li>
+                <li><strong>Profile Information:</strong> Basic public profile information (such as your TikTok username and avatar) to display and identify your connected accounts on our dashboard interface.</li>
+                <li><strong>Media & Content Data:</strong> Videos, captions, and scheduling details you upload or specify for the sole purpose of scheduling and publishing them to your TikTok account.</li>
+            </ul>
+
+            <h2>2. How We Use Your Information</h2>
+            <p>We use the information we collect in various ways, including to:</p>
+            <ul>
+                <li>Provide, operate, and maintain our scheduling and automated posting platform.</li>
+                <li>Facilitate the upload and scheduled publication of your video content to TikTok via official APIs.</li>
+                <li>Display and manage your connected channels on our user interface.</li>
+                <li>Maintain and refresh authentication credentials (tokens) to prevent service interruption.</li>
+                <li>Detect, prevent, and address technical issues or violations of API policies.</li>
+            </ul>
+
+            <h2>3. Data Storage and Security</h2>
+            <p>Your security is of paramount importance to us. We implement industry-standard security measures to safeguard your information:</p>
+            <ul>
+                <li>All API authorization tokens and user data are stored securely and encrypted both in transit and at rest.</li>
+                <li>Your data is strictly used for executing the automated posting pipeline and is never shared, sold, or transferred to any third-party marketing services.</li>
+                <li>You can disconnect your TikTok accounts and revoke access at any time through our application dashboard or your TikTok account settings, which will instantly delete all related authorization tokens from our system.</li>
+            </ul>
+
+            <h2>4. Third-Party Services</h2>
+            <p>Our application interacts with the TikTok Web API. When you authorize our app, you are subject to the TikTok Privacy Policy. We strongly encourage you to review their policy to understand how they handle your data:</p>
+            <ul>
+                <li><a href="https://www.tiktok.com/legal/page/row/privacy-policy/en" target="_blank" style="color: var(--accent-secondary); text-decoration: none;">TikTok Privacy Policy</a></li>
+            </ul>
+
+            <h2>5. Changes to This Privacy Policy</h2>
+            <p>We may update our Privacy Policy from time to time. Thus, we advise you to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately after they are posted on this page.</p>
+
+            <h2>6. Contact Us</h2>
+            <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact our support team.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- ================= JAPANESE SECTION ================= -->
+        <div id="japanese" class="section-lang">
+            <h1 style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 800; margin-bottom: 24px; color: #ffffff; letter-spacing: -0.5px;">プライバシーポリシー (Japanese)</h1>
+            <p><strong>発効日:</strong> 2026年5月29日</p>
+            <p><strong>Smart Social Scheduler</strong>（以下、「当サービス」または「当社」）は、ユーザーのプライバシーの保護に全力で取り組んでいます。本プライバシーポリシーは、当サービスが収集・記録する情報の種類と、その利用方法について説明するものです。</p>
+
+            <h2>1. 収集する情報</h2>
+            <p>当サービスは、TikTokアカウントへの動画予約投稿および自動投稿機能を提供するために必要不可欠な情報のみを収集・処理します。</p>
+            <ul>
+                <li><strong>OAuth認証データ:</strong> 公式のTikTokログイン連携を通じて、ユーザーの同意のもと取得するアクセストークンおよびリフレッシュトークン（動画投稿権限の実行用）。</li>
+                <li><strong>プロフィール情報:</strong> 連携されたアカウントを識別・ダッシュボード上に表示するための基本プロフィール情報（ユーザー名、プロフィール画像）。</li>
+                <li><strong>コンテンツデータ:</strong> 投稿をスケジュールするためにユーザーがアップロードまたは指定した動画ファイル、キャプション、投稿指定日時。</li>
+            </ul>
+
+            <h2>2. 情報の利用目的</h2>
+            <p>収集した情報は、以下の目的でのみ利用されます：</p>
+            <ul>
+                <li>当サービスの予約投稿・自動投稿システムの運用および維持。</li>
+                <li>公式APIを経由した、指定日時の動画コンテンツのTikTokへの自動アップロード・投稿処理。</li>
+                <li>ダッシュボード上での連携アカウントの表示と管理機能の提供。</li>
+                <li>API連携を継続するためのトークンの自動更新処理。</li>
+                <li>システムの不具合対応、セキュリティ対策、および利用規約違反・APIポリシー違反の防止。</li>
+            </ul>
+
+            <h2>3. データの保管と安全管理</h2>
+            <p>ユーザーデータの安全性は最優先事項です。当サービスは、以下の強力なセキュリティ対策を実施しています：</p>
+            <ul>
+                <li>すべての認証トークンおよびコンテンツデータは、暗号化通信（HTTPS）および強固な暗号化ストレージを用いて厳重に保管されます。</li>
+                <li>お預かりしたデータは、自動投稿プロセスの実行以外の目的（第三者への提供や販売、マーケティング目的等）で利用されることは一切ありません。</li>
+                <li>ユーザーは、当サービスのダッシュボードまたはTikTokのアカウント設定から、いつでも連携を解除できます。連携解除時、関連する認証トークンは当システムから即座に完全削除されます。</li>
+            </ul>
+
+            <h2>4. サードパーティサービス</h2>
+            <p>当サービスはTikTok APIと連携します。本サービスの利用には、TikTokのプライバシーポリシーが適用されます。詳細については以下をご確認ください：</p>
+            <ul>
+                <li><a href="https://www.tiktok.com/legal/page/row/privacy-policy/ja" target="_blank" style="color: var(--accent-secondary); text-decoration: none;">TikTok プライバシーポリシー</a></li>
+            </ul>
+
+            <h2>5. プライバシーポリシーの改定</h2>
+            <p>本プライバシーポリシーは必要に応じて改定されることがあります。改定されたポリシーは本ページに掲載された時点で即座に有効となります。定期的に本ページを確認されることをお勧めします。</p>
+
+            <h2>6. お問い合わせ</h2>
+            <p>本ポリシーに関するご質問やご不明点がある場合は、お気軽にお問い合わせ窓口までご連絡ください。</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Smart Social Scheduler. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple tabs interaction or smooth scrolling
+        const btns = document.querySelectorAll('.lang-btn');
+        btns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                btns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

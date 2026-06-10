@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Social Scheduler - Premium TikTok Scheduling Platform</title>
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #070913;
+            --card-bg: rgba(13, 18, 36, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --tiktok-cyan: #25f4ee;
+            --tiktok-pink: #fe2c55;
+            --primary-violet: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 5% 10%, rgba(37, 244, 238, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 95% 90%, rgba(254, 44, 85, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+        }
+
+        /* Ambient background glow elements */
+        .ambient-glow-1 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            top: -200px;
+            left: -200px;
+            background: radial-gradient(circle, rgba(37, 244, 238, 0.1) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+            filter: blur(80px);
+        }
+
+        .ambient-glow-2 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            bottom: -200px;
+            right: -200px;
+            background: radial-gradient(circle, rgba(254, 44, 85, 0.1) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+            filter: blur(80px);
+        }
+
+        /* Main Container */
+        .app-wrapper {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Glassmorphism Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(7, 9, 19, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--tiktok-cyan) 0%, var(--primary-violet) 50%, var(--tiktok-pink) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 20px;
+        }
+
+        .logo-text {
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover {
+            color: var(--text-main);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-connect {
+            background: linear-gradient(135deg, #1e1b4b 0%, rgba(99, 102, 241, 0.2) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            color: #ffffff;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.15);
+        }
+
+        .btn-connect:hover {
+            background: linear-gradient(135deg, var(--tiktok-cyan) 0%, var(--tiktok-pink) 100%);
+            border-color: transparent;
+            box-shadow: 0 0 25px rgba(37, 244, 238, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* VIEW 1: LANDING PAGE */
+        .landing-view {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .hero-badge {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            color: #a5b4fc;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.05);
+            animation: pulse-glow 3s infinite alternate;
+        }
+
+        .hero-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 64px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            max-width: 900px;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--tiktok-cyan) 0%, var(--primary-violet) 50%, var(--tiktok-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .hero-description {
+            color: var(--text-muted);
+            font-size: 18px;
+            max-width: 650px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-violet) 0%, var(--tiktok-pink) 100%);
+            border: none;
+            color: #ffffff;
+            padding: 16px 36px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(254, 44, 85, 0.45);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 16px 36px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: left;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--tiktok-cyan) 0%, transparent 30%);
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .feature-card:nth-child(2)::before {
+            background: linear-gradient(135deg, var(--primary-violet) 0%, transparent 30%);
+        }
+
+        .feature-card:nth-child(3)::before {
+            background: linear-gradient(135deg, var(--tiktok-pink) 0%, transparent 30%);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 20px var(--accent-glow);
+        }
+
+        .feature-card:hover::before {
+            opacity: 0.15;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 24px;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* VIEW 2: DASHBOARD VIEW */
+        .dashboard-view {
+            display: none; /* Controlled by JS */
+            flex-grow: 1;
+            padding: 40px 6%;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+        }
+
+        /* Dashboard Sidebar */
+        .sidebar {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 30px 24px;
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 24px;
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--tiktok-cyan) 0%, var(--tiktok-pink) 100%);
+            padding: 2px;
+            box-shadow: 0 4px 15px rgba(254, 44, 85, 0.2);
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50px;
+            background-color: #111827;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .user-info h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .user-info p {
+            font-size: 12px;
+            color: #10b981;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #10b981;
+            animation: pulse-green 1.5s infinite alternate;
+        }
+
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .menu-item:hover, .menu-item.active {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .menu-item.active {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(254, 44, 85, 0.05) 100%);
+            border-left: 3px solid var(--tiktok-pink);
+            padding-left: 13px;
+        }
+
+        .menu-item-icon {
+            font-size: 18px;
+        }
+
+        /* Dashboard Content Area */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dashboard-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        /* Connect Alert Banner */
+        .api-banner {
+            background: linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, rgba(37, 244, 238, 0.05) 100%);
+            border: 1px solid rgba(10, 185, 129, 0.2);
+            border-radius: 16px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .api-banner-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .api-banner-icon {
+            font-size: 24px;
+            color: #10b981;
+        }
+
+        .api-banner-text h5 {
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .api-banner-text p {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .badge-live {
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 30px;
+            text-transform: uppercase;
+        }
+
+        /* Grid for Form & Queue */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Schedule Form */
+        .form-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+            margin-bottom: 8px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .label-counter {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .form-input, .form-textarea {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 14px;
+            transition: var(--transition-smooth);
+            outline: none;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            border-color: var(--tiktok-cyan);
+            box-shadow: 0 0 10px rgba(37, 244, 238, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .form-textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        /* File Upload Dropzone */
+        .dropzone {
+            border: 2px dashed rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            background: rgba(255, 255, 255, 0.01);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .dropzone:hover, .dropzone.dragover {
+            border-color: var(--tiktok-pink);
+            background: rgba(254, 44, 85, 0.04);
+            box-shadow: 0 0 15px rgba(254, 44, 85, 0.1);
+        }
+
+        .dropzone-icon {
+            font-size: 32px;
+            color: var(--tiktok-pink);
+        }
+
+        .dropzone-text h5 {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .dropzone-text p {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .file-selected-info {
+            display: none;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            padding: 10px 16px;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 600;
+            animation: slide-up 0.3s ease;
+        }
+
+        .file-selected-name {
+            color: var(--tiktok-cyan);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 200px;
+        }
+
+        .btn-remove-file {
+            color: var(--tiktok-pink);
+            cursor: pointer;
+            font-size: 14px;
+            padding: 2px 8px;
+            background: rgba(254, 44, 85, 0.1);
+            border-radius: 4px;
+            border: none;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-remove-file:hover {
+            background: var(--tiktok-pink);
+            color: #ffffff;
+        }
+
+        /* Queue List (Right Grid Column) */
+        .queue-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .queue-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+        }
+
+        .queue-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-height: 480px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        /* Custom Scrollbar for Queue */
+        .queue-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        .queue-list::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.01);
+        }
+        .queue-list::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .queue-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .queue-item:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateX(4px);
+        }
+
+        .queue-thumbnail {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(37, 244, 238, 0.2) 0%, rgba(254, 44, 85, 0.2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .queue-thumbnail::after {
+            content: "▶";
+            font-size: 12px;
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.5);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 2px;
+        }
+
+        .queue-details {
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        .queue-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .queue-caption {
+            font-size: 12px;
+            color: var(--text-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 4px;
+        }
+
+        .queue-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .queue-time {
+            font-size: 11px;
+            color: var(--tiktok-cyan);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .status-badge {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .status-scheduled {
+            background: rgba(99, 102, 241, 0.15);
+            color: #818cf8;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .status-published {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .queue-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-action {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-action:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-delete:hover {
+            background: rgba(254, 44, 85, 0.15);
+            border-color: rgba(254, 44, 85, 0.3);
+            color: var(--tiktok-pink);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 8%;
+            text-align: center;
+            background: rgba(7, 9, 19, 0.8);
+            margin-top: auto;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .footer-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--tiktok-cyan) 0%, var(--tiktok-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+        }
+
+        /* Notifications style */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(13, 18, 36, 0.9);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast-icon {
+            font-size: 20px;
+            color: #10b981;
+        }
+
+        .toast-content h6 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .toast-content p {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Animations */
+        @keyframes pulse-glow {
+            from { box-shadow: 0 0 15px rgba(99, 102, 241, 0.05); }
+            to { box-shadow: 0 0 25px rgba(99, 102, 241, 0.25); }
+        }
+
+        @keyframes pulse-green {
+            from { opacity: 0.6; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slide-up {
+            from { transform: translateY(10px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in-active {
+            animation: fade-in 0.8s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background decorative ambient lights -->
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+
+    <div class="app-wrapper">
+        <!-- Navigation -->
+        <nav>
+            <div class="logo-area">
+                <div class="logo-icon">🚀</div>
+                <div class="logo-text">Smart Social Scheduler</div>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link" onclick="showLanding()">Home</a>
+                <a href="privacy.html" class="nav-link" target="_blank">Privacy Policy</a>
+                <a href="terms.html" class="nav-link" target="_blank">Terms of Service</a>
+                <button class="btn-connect" onclick="connectTikTok()">
+                    <span>🎵</span> Connect TikTok
+                </button>
+            </div>
+        </nav>
+
+        <!-- VIEW 1: LANDING PAGE -->
+        <div id="landingView" class="landing-view fade-in-active">
+            <div class="hero-badge">Next-Gen Creator Pipeline</div>
+            <h1 class="hero-title">
+                The Premium Platform to <br><span>Schedule TikTok Content</span>
+            </h1>
+            <p class="hero-description">
+                Empower your TikTok presence with a highly automated, secure, and visually interactive scheduler. Plan, optimize, and automatically deploy your posts at peak hours seamlessly.
+            </p>
+            <div class="cta-group">
+                <button class="btn-primary" onclick="connectTikTok()">Get Started Free</button>
+                <button class="btn-secondary" onclick="showDashboardSimulated()">Explore Dashboard Mock</button>
+            </div>
+
+            <!-- Beautiful SaaS Feature Cards -->
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Automated Publishing</h3>
+                    <p>Schedule your videos in advance. Our high-performance background queue handles uploads to TikTok officially and instantly.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>OAuth Secure Linking</h3>
+                    <p>Direct integration with the TikTok login kit. Fully secure, tokenized API flow protecting your credential data.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Multi-Account Queue</h3>
+                    <p>Seamlessly organize distinct video post schedules across multiple TikTok profiles from a centralized, beautiful control dashboard.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 2: DASHBOARD VIEW (INTERACTIVE MOCK FOR DEMO VIDEO) -->
+        <div id="dashboardView" class="dashboard-view">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="user-profile">
+                    <div class="avatar">
+                        <div class="avatar-img">TC</div>
+                    </div>
+                    <div class="user-info">
+                        <h4>TikTok_Creator</h4>
+                        <p><span class="pulse-dot"></span>Connected</p>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <div class="menu-item active">
+                        <span class="menu-item-icon">📅</span> Scheduler
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-icon">📦</span> Content Queue
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-icon">📈</span> Analytics
+                    </div>
+                    <div class="menu-item" onclick="showLanding()">
+                        <span class="menu-item-icon">↩</span> Disconnect
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard Area -->
+            <div class="main-content">
+                <div class="dashboard-header">
+                    <h2>TikTok Queue Dashboard</h2>
+                    <span class="badge-live">Official API Live</span>
+                </div>
+
+                <!-- API Connection Banner -->
+                <div class="api-banner">
+                    <div class="api-banner-left">
+                        <div class="api-banner-icon">✓</div>
+                        <div class="api-banner-text">
+                            <h5>TikTok Content Posting API Connected</h5>
+                            <p>OAuth 2.0 authorization is active. Your credentials are securely encrypted.</p>
+                        </div>
+                    </div>
+                    <span class="badge-live" style="background: rgba(37, 244, 238, 0.15); color: var(--tiktok-cyan);">PRO MODE</span>
+                </div>
+
+                <!-- Core Grid -->
+                <div class="dashboard-grid">
+                    <!-- Schedule Form -->
+                    <div class="form-card">
+                        <h3>Schedule New Video</h3>
+                        
+                        <!-- Video File Dropzone -->
+                        <div class="form-group">
+                            <label class="form-label">Video Content *</label>
+                            <div class="dropzone" id="dropzone" onclick="simulateFileSelect()">
+                                <div class="dropzone-icon">📥</div>
+                                <div class="dropzone-text">
+                                    <h5>Click to choose video file</h5>
+                                    <p>MP4 or WebM format (recommended: 1080x1920, max 100MB)</p>
+                                </div>
+                            </div>
+                            <!-- Hidden simulated input or chosen file state info -->
+                            <div class="file-selected-info" id="fileInfo">
+                                <div>📁 File: <span class="file-selected-name" id="fileName">tiktok_promo.mp4</span></div>
+                                <button class="btn-remove-file" onclick="removeSelectedFile(event)">Remove</button>
+                            </div>
+                        </div>
+
+                        <!-- Caption -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                Caption (TikTok Description) *
+                                <span class="label-counter" id="charCounter">0 / 2200</span>
+                            </label>
+                            <textarea class="form-textarea" id="captionInput" placeholder="Write your awesome TikTok caption here... Add #trending #foryou #autoscheduler" oninput="updateCharCount()"></textarea>
+                        </div>
+
+                        <!-- Scheduling Date/Time Picker -->
+                        <div class="form-group">
+                            <label class="form-label">Publish Schedule Date & Time *</label>
+                            <input type="datetime-local" class="form-input" id="scheduleTime">
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button class="btn-primary" style="margin-top: 10px; width: 100%;" onclick="scheduleNewPost()">
+                            🚀 Schedule Video to TikTok
+                        </button>
+                    </div>
+
+                    <!-- Queue List -->
+                    <div class="queue-card">
+                        <h3>Scheduled Posts Queue</h3>
+                        <div class="queue-list" id="queueList">
+                            <!-- Pre-filled beautiful dummy item 1 (Published) -->
+                            <div class="queue-item">
+                                <div class="queue-thumbnail"></div>
+                                <div class="queue-details">
+                                    <div class="queue-title">my_first_vlog.mp4</div>
+                                    <div class="queue-caption">A day in my life as a creator! #vlog #creator #foryou</div>
+                                    <div class="queue-meta">
+                                        <span class="queue-time">🕒 Today, 08:30 AM</span>
+                                        <span class="status-badge status-published">Published</span>
+                                    </div>
+                                </div>
+                                <div class="queue-actions">
+                                    <button class="btn-action">ℹ️</button>
+                                </div>
+                            </div>
+
+                            <!-- Pre-filled dummy item 2 (Scheduled) -->
+                            <div class="queue-item" id="dummyItem2">
+                                <div class="queue-thumbnail"></div>
+                                <div class="queue-details">
+                                    <div class="queue-title">product_teaser.mp4</div>
+                                    <div class="queue-caption">Something huge is coming tomorrow! 🔥 Stay tuned. #teaser #productlaunch</div>
+                                    <div class="queue-meta">
+                                        <span class="queue-time">🕒 Tomorrow, 10:00 AM</span>
+                                        <span class="status-badge status-scheduled">Scheduled</span>
+                                    </div>
+                                </div>
+                                <div class="queue-actions">
+                                    <button class="btn-action btn-delete" onclick="deleteDummyItem('dummyItem2')">🗑️</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-logo">Smart Social Scheduler</div>
+            <div class="footer-links">
+                <a href="#" class="footer-link" onclick="showLanding()">Home</a>
+                <a href="privacy.html" class="footer-link" target="_blank">Privacy Policy</a>
+                <a href="terms.html" class="footer-link" target="_blank">Terms of Service</a>
+            </div>
+            <div class="footer-copyright">&copy; 2026 Smart Social Scheduler. Designed for professional TikTok integration. All rights reserved.</div>
+        </footer>
+    </div>
+
+    <!-- Toast Notification System -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">✓</div>
+        <div class="toast-content">
+            <h6 id="toastTitle">Post Scheduled Successfully</h6>
+            <p id="toastMessage">Your video has been added to the queue pipeline.</p>
+        </div>
+    </div>
+
+    <!-- Interactive script to power the demo dashboard -->
+    <script>
+        // Set default datetime to tomorrow same time
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        tomorrow.setMinutes(0);
+        document.getElementById('scheduleTime').value = tomorrow.toISOString().slice(0, 16);
+
+        let selectedFile = null;
+
+        function showLanding() {
+            document.getElementById('landingView').style.display = 'flex';
+            document.getElementById('dashboardView').style.display = 'none';
+            document.getElementById('landingView').className = 'landing-view fade-in-active';
+        }
+
+        function showDashboardSimulated() {
+            document.getElementById('landingView').style.display = 'none';
+            document.getElementById('dashboardView').style.display = 'grid';
+            document.getElementById('dashboardView').className = 'dashboard-view fade-in-active';
+        }
+
+        function connectTikTok() {
+            // Simulate standard OAuth Redirect glow, then redirect to the mock dashboard
+            showToast("OAuth Link", "Redirecting to secure TikTok login center...", "⌛");
+            setTimeout(() => {
+                showDashboardSimulated();
+                showToast("Connected Successfully", "TikTok account @TikTok_Creator was linked via OAuth 2.0.", "✓");
+            }, 1200);
+        }
+
+        function simulateFileSelect() {
+            // Pre-fill file details
+            const randomFiles = ['dance_challenge.mp4', 'cooking_recipe_v2.mp4', 'tech_review_1080p.mp4', 'comedy_sketch.mp4'];
+            const chosen = randomFiles[Math.floor(Math.random() * randomFiles.length)];
+            
+            selectedFile = chosen;
+            document.getElementById('dropzone').style.display = 'none';
+            document.getElementById('fileInfo').style.display = 'flex';
+            document.getElementById('fileName').innerText = chosen;
+            showToast("Video Loaded", `File "${chosen}" loaded into memory successfully.`, "🎥");
+        }
+
+        function removeSelectedFile(event) {
+            if (event) event.stopPropagation();
+            selectedFile = null;
+            document.getElementById('dropzone').style.display = 'flex';
+            document.getElementById('fileInfo').style.display = 'none';
+        }
+
+        function updateCharCount() {
+            const val = document.getElementById('captionInput').value;
+            document.getElementById('charCounter').innerText = `${val.length} / 2200`;
+        }
+
+        function deleteDummyItem(id) {
+            const elem = document.getElementById(id);
+            if (elem) {
+                elem.style.transform = 'scale(0.8)';
+                elem.style.opacity = '0';
+                setTimeout(() => {
+                    elem.remove();
+                    showToast("Item Removed", "Scheduled post has been deleted from the pipeline.", "🗑️");
+                }, 400);
+            }
+        }
+
+        function scheduleNewPost() {
+            const caption = document.getElementById('captionInput').value.trim();
+            const timeVal = document.getElementById('scheduleTime').value;
+
+            if (!selectedFile) {
+                showToast("Error", "Please choose a video file first.", "❌");
+                return;
+            }
+            if (!caption) {
+                showToast("Error", "Please enter a caption for your TikTok post.", "❌");
+                return;
+            }
+            if (!timeVal) {
+                showToast("Error", "Please select a valid scheduled date & time.", "❌");
+                return;
+            }
+
+            // Create a new queue item element dynamically
+            const list = document.getElementById('queueList');
+            const newItem = document.createElement('div');
+            newItem.className = 'queue-item';
+            newItem.style.animation = 'slide-up 0.4s ease';
+
+            // Format date presentation
+            const date = new Date(timeVal);
+            const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + `, ` + date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+            newItem.innerHTML = `
+                <div class="queue-thumbnail"></div>
+                <div class="queue-details">
+                    <div class="queue-title">${selectedFile}</div>
+                    <div class="queue-caption">${caption}</div>
+                    <div class="queue-meta">
+                        <span class="queue-time">🕒 ${dateStr}</span>
+                        <span class="status-badge status-scheduled">Scheduled</span>
+                    </div>
+                </div>
+                <div class="queue-actions">
+                    <button class="btn-action btn-delete" onclick="this.closest('.queue-item').remove(); showToast('Item Removed', 'Scheduled post deleted.', '🗑️');">🗑️</button>
+                </div>
+            `;
+
+            // Prepend new item to the queue list
+            list.insertBefore(newItem, list.firstChild);
+
+            // Reset form fields
+            removeSelectedFile();
+            document.getElementById('captionInput').value = '';
+            updateCharCount();
+
+            showToast("Success", "TikTok video scheduling registered successfully!", "🚀");
+        }
+
+        function showToast(title, message, icon) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastTitle').innerText = title;
+            document.getElementById('toastMessage').innerText = message;
+            
+            // Set custom icon
+            const iconElem = toast.querySelector('.toast-icon');
+            iconElem.innerText = icon;
+            if (icon === "❌") {
+                toast.style.borderColor = 'rgba(254, 44, 85, 0.4)';
+                toast.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(254, 44, 85, 0.2)';
+                iconElem.style.color = '#fe2c55';
+            } else {
+                toast.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+                toast.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(16, 185, 129, 0.2)';
+                iconElem.style.color = '#10b981';
+            }
+
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
